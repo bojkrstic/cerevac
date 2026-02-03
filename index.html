@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="sr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Церевац — Шишање и бријање</title>
+  <meta name="description" content="Брица Церевац — шишање, брада, фејд, груминг. Закажи термин брзо и лако." />
+  <style>
+    :root{
+      --bg:#0b0b0f;
+      --card:#12121a;
+      --muted:#9aa0aa;
+      --text:#f2f4f7;
+      --brand:#d6a84a; /* златна */
+      --brand2:#7a5cff; /* акцент */
+      --line:rgba(255,255,255,.08);
+      --shadow: 0 10px 30px rgba(0,0,0,.45);
+      --radius:18px;
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 70% -10%, rgba(122,92,255,.22), transparent 60%),
+        radial-gradient(900px 500px at 20% 0%, rgba(214,168,74,.18), transparent 55%),
+        linear-gradient(180deg, #07070a, #0b0b0f 35%, #0b0b0f);
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+      box-shadow: 0 1px 0 rgba(255,255,255,.06) inset;
+      transition:.2s ease;
+      font-weight:600;
+    }
+    .btn:hover{transform:translateY(-1px); border-color:rgba(255,255,255,.16); background:rgba(255,255,255,.06)}
+    .btn.primary{
+      background:linear-gradient(135deg, rgba(214,168,74,.95), rgba(214,168,74,.65));
+      border-color: rgba(214,168,74,.45);
+      color:#1b1406;
+    }
+    .btn.primary:hover{filter:brightness(1.03)}
+    .pill{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:8px 12px; border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:14px;
+    }
+    header{
+      position:sticky; top:0; z-index:40;
+      backdrop-filter: blur(10px);
+      background:rgba(11,11,15,.65);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800; letter-spacing:.2px;
+    }
+    .logo{
+      width:40px; height:40px; border-radius:12px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.2), transparent 55%),
+        linear-gradient(135deg, rgba(214,168,74,1), rgba(122,92,255,.9));
+      box-shadow: var(--shadow);
+    }
+    nav ul{
+      list-style:none; margin:0; padding:0;
+      display:flex; gap:18px; align-items:center;
+    }
+    nav a{
+      color:var(--muted);
+      font-weight:600;
+      font-size:14px;
+      padding:10px 10px;
+      border-radius:10px;
+      transition:.2s;
+    }
+    nav a:hover{color:var(--text); background:rgba(255,255,255,.04)}
+    .actions{display:flex; gap:10px; align-items:center}
+    .hero{
+      padding:44px 0 22px;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .hcard{
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:22px;
+      overflow:hidden;
+      position:relative;
+    }
+    .hcard::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(600px 220px at 20% 0%, rgba(214,168,74,.20), transparent 60%),
+                  radial-gradient(500px 220px at 80% 0%, rgba(122,92,255,.18), transparent 60%);
+      pointer-events:none;
+    }
+    .hcard > *{position:relative}
+    h1{
+      margin:12px 0 10px;
+      font-size: clamp(32px, 4.5vw, 54px);
+      line-height:1.05;
+      letter-spacing:-.5px;
+    }
+    .lead{color:var(--muted); font-size:16px; line-height:1.6; max-width:58ch}
+    .heroCtas{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px}
+    .meta{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top:16px;
+    }
+    .kpiGrid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:12px;
+      height:100%;
+    }
+    .kpi{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      border-radius:16px;
+      padding:16px;
+      display:flex; flex-direction:column; justify-content:space-between;
+      min-height:120px;
+    }
+    .kpi strong{font-size:22px}
+    .kpi span{color:var(--muted); font-size:13px; line-height:1.4}
+    .section{padding:26px 0}
+    .section h2{
+      font-size:22px; margin:0 0 12px;
+      letter-spacing:-.2px;
+    }
+    .sub{color:var(--muted); margin:0 0 14px; line-height:1.6}
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    .card{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      border-radius: var(--radius);
+      padding:16px;
+      box-shadow: 0 8px 22px rgba(0,0,0,.25);
+    }
+    .serviceTitle{display:flex; align-items:center; gap:10px; margin-bottom:8px}
+    .icon{
+      width:38px; height:38px; border-radius:12px;
+      background:rgba(214,168,74,.12);
+      border:1px solid rgba(214,168,74,.25);
+      display:grid; place-items:center;
+      color:var(--brand);
+      font-weight:900;
+    }
+    .priceTable{
+      width:100%; border-collapse:collapse; overflow:hidden;
+      border-radius:16px; border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+    }
+    .priceTable th, .priceTable td{
+      padding:12px 14px; text-align:left;
+      border-bottom:1px solid var(--line);
+      font-size:14px;
+    }
+    .priceTable th{color:var(--muted); font-weight:700; background:rgba(255,255,255,.02)}
+    .priceTable tr:last-child td{border-bottom:none}
+    .tag{
+      display:inline-flex; padding:6px 10px; border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px; font-weight:600;
+      background:rgba(255,255,255,.02);
+    }
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:10px;
+    }
+    .ph{
+      border:1px solid var(--line);
+      background:
+        radial-gradient(120px 120px at 30% 30%, rgba(255,255,255,.10), transparent 60%),
+        linear-gradient(135deg, rgba(214,168,74,.12), rgba(122,92,255,.12));
+      border-radius:16px;
+      min-height:130px;
+      position:relative;
+      overflow:hidden;
+    }
+    .ph::after{
+      content:"Додај фотографију";
+      position:absolute; inset:auto 12px 10px 12px;
+      color:rgba(242,244,247,.7);
+      font-size:12px;
+    }
+    .ph.big{grid-column: span 6; min-height:220px}
+    .ph.mid{grid-column: span 3}
+    .ph.small{grid-column: span 2}
+    .twoCol{
+      display:grid; grid-template-columns: 1fr 1fr; gap:12px;
+    }
+    .review{
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .stars{letter-spacing:2px; color:var(--brand)}
+    .who{color:var(--muted); font-size:13px}
+    .footer{
+      padding:26px 0 40px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+    }
+    .footGrid{
+      display:grid; grid-template-columns: 1.2fr .8fr; gap:12px;
+    }
+    .mini{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:10px
+    }
+    .input{
+      width:100%;
+      padding:12px 12px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.25);
+      color:var(--text);
+      outline:none;
+    }
+    .input:focus{border-color:rgba(214,168,74,.45)}
+    .note{font-size:12px; color:var(--muted); margin-top:10px}
+    .hideMobile{display:block}
+    .showMobile{display:none}
+    @media (max-width: 900px){
+      .heroGrid{grid-template-columns:1fr}
+      .grid3{grid-template-columns:1fr}
+      .twoCol{grid-template-columns:1fr}
+      nav ul{display:none}
+      .hideMobile{display:none}
+      .showMobile{display:inline-flex}
+      .ph.big{grid-column: span 12}
+      .ph.mid{grid-column: span 6}
+      .ph.small{grid-column: span 4}
+      .footGrid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="Почетна">
+          <span class="logo" aria-hidden="true"></span>
+          <span style="color:var(--brand)">Церевац</span>
+        </a>
+
+        <nav class="hideMobile" aria-label="Главна навигација">
+          <ul>
+            <li><a href="#usluge">Услуге</a></li>
+            <li><a href="#cenovnik">Ценовник</a></li>
+            <li><a href="#galerija">Галерија</a></li>
+            <li><a href="#recenzije">Рецензије</a></li>
+            <li><a href="#kontakt">Контакт</a></li>
+          </ul>
+        </nav>
+
+        <div class="actions">
+          <a class="btn showMobile" href="#kontakt">Мени</a>
+          <a class="btn" href="tel:+381600000000">Позови</a>
+          <a class="btn primary" href="#zakazi">Закажи термин</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <div class="heroGrid">
+          <div class="hcard">
+            <span class="pill">✂️ Најпопуларнији брица у граду • Брада • Фејд • Груминг</span>
+            <h1>Оштар фејд. Чиста брада. <br/>Вајб који траје.</h1>
+            <p class="lead">
+              Церевац — место где се добар стил ради без журбе. Прецизно шишање, обликовање браде и
+              детаљи који праве разлику.
+            </p>
+
+            <div class="heroCtas" id="zakazi">
+              <a class="btn primary" href="https://wa.me/381600000000" target="_blank" rel="noreferrer">WhatsApp заказивање</a>
+              <a class="btn" href="#cenovnik">Погледај ценовник</a>
+              <a class="btn" href="#galerija">Погледај радове</a>
+            </div>
+
+            <div class="meta">
+              <span class="pill">📍 Церевац (додај тачну адресу)</span>
+              <span class="pill">🕒 Пон–Суб: 09–19ч</span>
+              <span class="pill">⭐ 5.0 (рецензије)</span>
+            </div>
+          </div>
+
+          <div class="kpiGrid">
+            <div class="kpi">
+              <strong>Брзо заказивање</strong>
+              <span>WhatsApp / телефон — потврда термина у пар минута (у радно време).</span>
+            </div>
+            <div class="kpi">
+              <strong>Топ хигијена</strong>
+              <span>Чистоћа, дезинфекција алата, уредан радни простор.</span>
+            </div>
+            <div class="kpi">
+              <strong>Фејд & брада</strong>
+              <span>Low / mid / high фејд, тејпер, лајн-ап, брада и контуре.</span>
+            </div>
+            <div class="kpi">
+              <strong>Атмосфера</strong>
+              <span>Пријатан вајб, музика, без стреса — дођеш и искулираш.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="usluge">
+      <div class="wrap">
+        <h2>Услуге</h2>
+        <p class="sub">Најтраженије услуге — јасно, једноставно, без компликовања.</p>
+
+        <div class="grid3">
+          <div class="card">
+            <div class="serviceTitle">
+              <div class="icon">✂</div>
+              <div>
+                <strong>Шишање</strong><br/>
+                <span class="tag">Фејд / тејпер / класично</span>
+              </div>
+            </div>
+            <p class="sub">Прецизно шишање по облику главе + завршни стилинг.</p>
+          </div>
+
+          <div class="card">
+            <div class="serviceTitle">
+              <div class="icon">🧔</div>
+              <div>
+                <strong>Брада</strong><br/>
+                <span class="tag">Контуре / обликовање</span>
+              </div>
+            </div>
+            <p class="sub">Обликовање браде, контуре, бријач — чист завршетак.</p>
+          </div>
+
+          <div class="card">
+            <div class="serviceTitle">
+              <div class="icon">⚡</div>
+              <div>
+                <strong>Шишање + брада</strong><br/>
+                <span class="tag">Комплет услуга</span>
+              </div>
+            </div>
+            <p class="sub">Најпопуларнији пакет: глава + брада, све у једном термину.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cenovnik">
+      <div class="wrap">
+        <h2>Ценовник</h2>
+        <p class="sub">Цене су пример — само промени износе да одговарају реалним ценама.</p>
+
+        <table class="priceTable" aria-label="Ценовник">
+          <thead>
+            <tr>
+              <th>Услуга</th>
+              <th>Трајање</th>
+              <th>Цена</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Шишање</td>
+              <td>30–40 мин</td>
+              <td>1.200 RSD</td>
+            </tr>
+            <tr>
+              <td>Брада</td>
+              <td>20–30 мин</td>
+              <td>800 RSD</td>
+            </tr>
+            <tr>
+              <td>Шишање + брада</td>
+              <td>50–70 мин</td>
+              <td>1.800 RSD</td>
+            </tr>
+            <tr>
+              <td>Дечије шишање</td>
+              <td>20–30 мин</td>
+              <td>900 RSD</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="note">Тип: додај и “ванредно радно време / празници” ако треба.</p>
+      </div>
+    </section>
+
+    <section class="section" id="galerija">
+      <div class="wrap">
+        <h2>Галерија радова</h2>
+        <p class="sub">Овде убаци 6–10 најбољих фотки (пре/после, фејд, брада). За сада су плејсхолдери.</p>
+
+        <div class="gallery" aria-label="Галерија">
+          <div class="ph big"></div>
+          <div class="ph mid"></div>
+          <div class="ph mid"></div>
+          <div class="ph small"></div>
+          <div class="ph small"></div>
+          <div class="ph small"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="recenzije">
+      <div class="wrap">
+        <h2>Рецензије</h2>
+        <p class="sub">Кратко и уверљиво. (Касније ово може да се повеже са Google рецензијама.)</p>
+
+        <div class="twoCol">
+          <div class="card review">
+            <div class="stars">★★★★★</div>
+            <div>“Најбољи фејд у околини. Брада увек перфектна.”</div>
+            <div class="who">— Марко П.</div>
+          </div>
+          <div class="card review">
+            <div class="stars">★★★★★</div>
+            <div>“Брзо заказивање, одлична атмосфера и топ хигијена.”</div>
+            <div class="who">— Никола С.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="kontakt">
+      <div class="wrap">
+        <h2>Контакт & локација</h2>
+        <p class="sub">Додај тачну адресу + линк ка мапи. Испод је једноставан контакт блок.</p>
+
+        <div class="twoCol">
+          <div class="card">
+            <strong>Брица Церевац</strong>
+            <p class="sub" style="margin-top:10px">
+              📍 Адреса: <span class="tag">Церевац, (улица и број)</span><br/>
+              🕒 Радно време: <span class="tag">Пон–Суб 09–19ч</span><br/>
+              📞 Телефон: <a class="tag" href="tel:+381600000000">+381 60 000 000</a><br/>
+              💬 WhatsApp: <a class="tag" href="https://wa.me/381600000000" target="_blank" rel="noreferrer">пошаљи поруку</a>
+            </p>
+
+            <div class="mini">
+              <a class="btn primary" href="https://wa.me/381600000000" target="_blank" rel="noreferrer">Закажи преко WhatsApp</a>
+              <a class="btn" href="tel:+381600000000">Позови одмах</a>
+            </div>
+
+            <p class="note">Ако имаш Instagram/TikTok, додај дугме овде (то често диже поверење).</p>
+          </div>
+
+          <div class="card">
+            <strong>Брза порука</strong>
+            <p class="sub" style="margin-top:10px">Ово може касније да иде на форм хендлер / имејл. За сада је само UI.</p>
+
+            <form onsubmit="event.preventDefault(); alert('Порука је послата (демо).');">
+              <label>
+                <span class="who">Име</span>
+                <input class="input" required placeholder="нпр. Бојан" />
+              </label>
+              <div style="height:10px"></div>
+              <label>
+                <span class="who">Телефон</span>
+                <input class="input" required placeholder="+381..." />
+              </label>
+              <div style="height:10px"></div>
+              <label>
+                <span class="who">Порука</span>
+                <textarea class="input" rows="4" required placeholder="Желим термин за шишање + браду у петак..."></textarea>
+              </label>
+              <div style="height:12px"></div>
+              <button class="btn primary" type="submit">Пошаљи</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap">
+        <div class="footGrid">
+          <div>
+            <div class="brand">
+              <span class="logo" aria-hidden="true"></span>
+              <span style="color:var(--brand)">Церевац</span>
+            </div>
+            <p class="sub" style="margin-top:10px">
+              Шишање • Брада • Фејд • Груминг<br/>
+              © <span id="y"></span> Церевац. Сва права задржана.
+            </p>
+          </div>
+          <div>
+            <p class="sub"><strong style="color:var(--text)">Брзи линкови</strong></p>
+            <div class="mini">
+              <a class="btn" href="#usluge">Услуге</a>
+              <a class="btn" href="#cenovnik">Ценовник</a>
+              <a class="btn" href="#galerija">Галерија</a>
+              <a class="btn" href="#kontakt">Контакт</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
