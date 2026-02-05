@@ -265,6 +265,21 @@
       .ph.small{grid-column: span 4}
       .footGrid{grid-template-columns:1fr}
     }
+    @media (max-width: 600px){
+      .wrap{padding:0 14px}
+      .hero{padding:30px 0 14px}
+      .actions,
+      .heroCtas,
+      .mini{flex-direction:column; align-items:stretch}
+      .actions .btn,
+      .heroCtas .btn,
+      .mini .btn{width:100%; justify-content:center}
+      .meta{flex-direction:column}
+      .pill,
+      .tag{width:100%; justify-content:center; text-align:center}
+      .gallery{gap:8px}
+      .card{padding:14px}
+    }
   </style>
 </head>
 
@@ -315,7 +330,7 @@
             </div>
 
             <div class="meta">
-              <span class="pill">📍 Церевац (додај тачну адресу)</span>
+              <span class="pill">📍 Сењска 8, Пирот 18300</span>
               <span class="pill">🕒 Пон–Пет: 08:28–20:01ч</span>
               <span class="pill">🕒 Субота: 08:28–15:01ч</span>
               <span class="pill">🕒 Недеља: 09:01–10:28ч</span>
