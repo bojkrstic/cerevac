@@ -201,23 +201,22 @@
     }
     .ph{
       border:1px solid var(--line);
-      background:
-        radial-gradient(120px 120px at 30% 30%, rgba(255,255,255,.10), transparent 60%),
-        linear-gradient(135deg, rgba(214,168,74,.12), rgba(122,92,255,.12));
+      background:#050506;
       border-radius:16px;
-      min-height:130px;
       position:relative;
       overflow:hidden;
     }
-    .ph::after{
-      content:"Додај фотографију";
-      position:absolute; inset:auto 12px 10px 12px;
-      color:rgba(242,244,247,.7);
-      font-size:12px;
+    .ph img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
     }
-    .ph.big{grid-column: span 6; min-height:220px}
-    .ph.mid{grid-column: span 3}
-    .ph.small{grid-column: span 2}
+    .ph.big{grid-column: span 6; aspect-ratio: 3 / 2}
+    .ph.mid{grid-column: span 3; aspect-ratio: 4 / 5}
+    .ph.small{grid-column: span 2; aspect-ratio: 1 / 1}
     .twoCol{
       display:grid; grid-template-columns: 1fr 1fr; gap:12px;
     }
@@ -286,7 +285,7 @@
 
         <div class="actions">
           <a class="btn showMobile" href="#kontakt">Мени</a>
-          <a class="btn" href="tel:+381600000000">Позови</a>
+          <a class="btn" href="viber://chat?number=%2B381642152160" target="_blank" rel="noreferrer">Позови преко Viber</a>
           <a class="btn primary" href="#zakazi">Закажи термин</a>
         </div>
       </div>
@@ -306,7 +305,7 @@
             </p>
 
             <div class="heroCtas" id="zakazi">
-              <a class="btn primary" href="https://wa.me/381600000000" target="_blank" rel="noreferrer">WhatsApp заказивање</a>
+              <a class="btn primary" href="https://wa.me/381642152160" target="_blank" rel="noreferrer">WhatsApp заказивање</a>
               <a class="btn" href="#cenovnik">Погледај ценовник</a>
               <a class="btn" href="#galerija">Погледај радове</a>
             </div>
@@ -428,15 +427,32 @@
     <section class="section" id="galerija">
       <div class="wrap">
         <h2>Галерија радова</h2>
-        <p class="sub">Овде убаци 6–10 најбољих фотки (пре/после, фејд, брада). За сада су плејсхолдери.</p>
-
         <div class="gallery" aria-label="Галерија">
-          <div class="ph big"></div>
-          <div class="ph mid"></div>
-          <div class="ph mid"></div>
-          <div class="ph small"></div>
-          <div class="ph small"></div>
-          <div class="ph small"></div>
+          <div class="ph big">
+            <a href="sl1-noc.png" target="_blank" rel="noreferrer">
+              <img src="sl1-noc.png" alt="Фејд и брада у ноћној атмосфери" loading="lazy" />
+            </a>
+          </div>
+          <div class="ph mid">
+            <a href="sl2.png" target="_blank" rel="noreferrer">
+              <img src="sl2.png" alt="Брица подешава прецизне линије на страни" loading="lazy" />
+            </a>
+          </div>
+          <div class="ph mid">
+            <a href="sl3-avion.png" target="_blank" rel="noreferrer">
+              <img src="sl3-avion.png" alt="Фризура инспирисана путовањима и авијацијом" loading="lazy" />
+            </a>
+          </div>
+          <div class="ph small">
+            <a href="sl4-drugari.png" target="_blank" rel="noreferrer">
+              <img src="sl4-drugari.png" alt="Дружење после свежег шишања" loading="lazy" />
+            </a>
+          </div>
+          <div class="ph small">
+            <a href="sl5-ulica.png" target="_blank" rel="noreferrer">
+              <img src="sl5-ulica.png" alt="Улични стил са уређеном брадом" loading="lazy" />
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -444,8 +460,6 @@
     <section class="section" id="recenzije">
       <div class="wrap">
         <h2>Рецензије</h2>
-        <p class="sub">Кратко и уверљиво. (Касније ово може да се повеже са Google рецензијама.)</p>
-
         <div class="twoCol">
           <div class="card review">
             <div class="stars">★★★★★</div>
@@ -464,23 +478,21 @@
     <section class="section" id="kontakt">
       <div class="wrap">
         <h2>Контакт & локација</h2>
-        <p class="sub">Додај тачну адресу + линк ка мапи. Испод је једноставан контакт блок.</p>
-
         <div class="twoCol">
           <div class="card">
             <strong>Брица Церевац</strong>
             <p class="sub" style="margin-top:10px">
-              📍 Адреса: <span class="tag">Церевац, (улица и број)</span><br/>
+              📍 Адреса: <span class="tag">Сењска 8, Пирот 18300</span><br/>
               🕒 Радно време: <span class="tag">Пон–Пет 08:28–20:01ч</span><br/>
               🕒 Субота: <span class="tag">08:28–15:01ч</span><br/>
               🕒 Недеља: <span class="tag">09:01–10:28ч</span><br/>
               📞 Телефон: <a class="tag" href="tel:+381642152160">+381 64 215 2160</a><br/>
-              💬 WhatsApp: <a class="tag" href="https://wa.me/381600000000" target="_blank" rel="noreferrer">пошаљи поруку</a>
+              💬 WhatsApp: <a class="tag" href="https://wa.me/381642152160" target="_blank" rel="noreferrer">пошаљи поруку</a>
             </p>
 
             <div class="mini">
-              <a class="btn primary" href="https://wa.me/381600000000" target="_blank" rel="noreferrer">Закажи преко WhatsApp</a>
-              <a class="btn" href="tel:+381600000000">Позови одмах</a>
+              <a class="btn primary" href="https://wa.me/381642152160" target="_blank" rel="noreferrer">Закажи преко WhatsApp</a>
+              <a class="btn" href="viber://chat?number=%2B381642152160" target="_blank" rel="noreferrer">Позови преко Viber</a>
             </div>
 
             <p class="note">Ако имаш Instagram/TikTok, додај дугме овде (то често диже поверење).</p>
@@ -488,22 +500,22 @@
 
           <div class="card">
             <strong>Брза порука</strong>
-            <p class="sub" style="margin-top:10px">Ово може касније да иде на форм хендлер / имејл. За сада је само UI.</p>
+            <p class="sub" style="margin-top:10px">Када пошаљеш, отвориће се WhatsApp разговор са припремљеном поруком.</p>
 
-            <form onsubmit="event.preventDefault(); alert('Порука је послата (демо).');">
+            <form id="quickForm">
               <label>
                 <span class="who">Име</span>
-                <input class="input" required placeholder="нпр. Бојан" />
+                <input class="input" name="name" required placeholder="нпр. Бојан" />
               </label>
               <div style="height:10px"></div>
               <label>
                 <span class="who">Телефон</span>
-                <input class="input" required placeholder="+381..." />
+                <input class="input" name="phone" required placeholder="+381..." />
               </label>
               <div style="height:10px"></div>
               <label>
                 <span class="who">Порука</span>
-                <textarea class="input" rows="4" required placeholder="Желим термин за шишање + браду у петак..."></textarea>
+                <textarea class="input" name="message" rows="4" required placeholder="Желим термин за шишање + браду у петак..."></textarea>
               </label>
               <div style="height:12px"></div>
               <button class="btn primary" type="submit">Пошаљи</button>
@@ -542,6 +554,24 @@
 
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    const quickForm = document.getElementById("quickForm");
+    if (quickForm) {
+      quickForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const name = quickForm.elements["name"].value.trim();
+        const phone = quickForm.elements["phone"].value.trim();
+        const message = quickForm.elements["message"].value.trim();
+        const composed = [
+          `Здраво, ја сам ${name}.`,
+          `Телефон: ${phone}.`,
+          message
+        ].filter(Boolean).join("\n");
+        const url = `https://wa.me/381642152160?text=${encodeURIComponent(composed)}`;
+        window.open(url, "_blank", "noopener");
+        quickForm.reset();
+      });
+    }
   </script>
 </body>
 </html>
