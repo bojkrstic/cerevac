@@ -11,8 +11,8 @@
       --card:#12121a;
       --muted:#9aa0aa;
       --text:#f2f4f7;
-      --brand:#d6a84a; /* златна */
-      --brand2:#7a5cff; /* акцент */
+      --brand:#d6a84a;
+      --brand2:#7a5cff;
       --line:rgba(255,255,255,.08);
       --shadow: 0 10px 30px rgba(0,0,0,.45);
       --radius:18px;
@@ -42,6 +42,7 @@
       box-shadow: 0 1px 0 rgba(255,255,255,.06) inset;
       transition:.2s ease;
       font-weight:600;
+      cursor:pointer;
     }
     .btn:hover{transform:translateY(-1px); border-color:rgba(255,255,255,.16); background:rgba(255,255,255,.06)}
     .btn.primary{
@@ -198,6 +199,7 @@
       display:grid;
       grid-template-columns: repeat(12, 1fr);
       gap:10px;
+      margin-top:12px;
     }
     .ph{
       border:1px solid var(--line);
@@ -205,7 +207,7 @@
       border-radius:16px;
       position:relative;
       overflow:hidden;
-      min-height:130px; /* fallback for старије бровзере без aspect-ratio */
+      min-height:130px;
     }
     .ph a{
       position:absolute;
@@ -287,25 +289,26 @@
   <header>
     <div class="wrap">
       <div class="nav">
-        <a class="brand" href="#top" aria-label="Почетна">
+        <a class="brand" href="#top" aria-label="Почетна" data-i18n-attr="aria-label:brandAriaLabel">
           <span class="logo" aria-hidden="true"></span>
-          <span style="color:var(--brand)">Церевац</span>
+          <span style="color:var(--brand)" data-i18n="brandName">Церевац</span>
         </a>
 
-        <nav class="hideMobile" aria-label="Главна навигација">
+        <nav class="hideMobile" aria-label="Главна навигација" data-i18n-attr="aria-label:navAriaLabel">
           <ul>
-            <li><a href="#usluge">Услуге</a></li>
-            <li><a href="#cenovnik">Ценовник</a></li>
-            <li><a href="#galerija">Галерија</a></li>
-            <li><a href="#recenzije">Рецензије</a></li>
-            <li><a href="#kontakt">Контакт</a></li>
+            <li><a href="#usluge" data-i18n="navServices">Услуге</a></li>
+            <li><a href="#cenovnik" data-i18n="navPricing">Ценовник</a></li>
+            <li><a href="#galerija" data-i18n="navGallery">Галерија</a></li>
+            <li><a href="#recenzije" data-i18n="navReviews">Рецензије</a></li>
+            <li><a href="#kontakt" data-i18n="navContact">Контакт</a></li>
           </ul>
         </nav>
 
         <div class="actions">
-          <a class="btn showMobile" href="#kontakt">Мени</a>
-          <a class="btn" href="viber://chat?number=%2B381642152160" target="_blank" rel="noreferrer">Позови преко Viber</a>
-          <a class="btn primary" href="#zakazi">Закажи термин</a>
+          <button class="btn" id="langToggle" type="button" aria-pressed="false">Latinica</button>
+          <a class="btn showMobile" href="#kontakt" data-i18n="actionMenu">Мени</a>
+          <a class="btn" href="viber://chat?number=%2B381642152160" target="_blank" rel="noreferrer" data-i18n="actionViber">Позови преко Viber</a>
+          <a class="btn primary" href="#zakazi" data-i18n="actionBook">Закажи термин</a>
         </div>
       </div>
     </div>
@@ -316,44 +319,44 @@
       <div class="wrap">
         <div class="heroGrid">
           <div class="hcard">
-            <span class="pill">✂️ Најпопуларнији брица у граду • Брада • Фејд • Груминг</span>
-            <h1>Оштар фејд. Чиста брада. <br/>Вајб који траје.</h1>
-            <p class="lead">
+            <span class="pill" data-i18n="heroPill">✂️ Најпопуларнији брица у граду • Брада • Фејд • Груминг</span>
+            <h1 data-i18n="heroTitle" data-i18n-mode="html">Оштар фејд. Чиста брада. <br/>Вајб који траје.</h1>
+            <p class="lead" data-i18n="heroLead">
               Церевац — место где се добар стил ради без журбе. Прецизно шишање, обликовање браде и
               детаљи који праве разлику.
             </p>
 
             <div class="heroCtas" id="zakazi">
-              <a class="btn primary" href="https://wa.me/381642152160" target="_blank" rel="noreferrer">WhatsApp заказивање</a>
-              <a class="btn" href="#cenovnik">Погледај ценовник</a>
-              <a class="btn" href="#galerija">Галерија</a>
+              <a class="btn primary" href="https://wa.me/381642152160" target="_blank" rel="noreferrer" data-i18n="heroWhatsApp">WhatsApp заказивање</a>
+              <a class="btn" href="#cenovnik" data-i18n="heroPricing">Погледај ценовник</a>
+              <a class="btn" href="#galerija" data-i18n="heroGallery">Галерија</a>
             </div>
 
             <div class="meta">
-              <span class="pill">📍 Сењска 8, Пирот 18300</span>
-              <span class="pill">🕒 Пон–Пет: 08:28–20:01ч</span>
-              <span class="pill">🕒 Субота: 08:28–15:01ч</span>
-              <span class="pill">🕒 Недеља: 09:01–10:28ч</span>
-              <span class="pill">⭐ 5.0 (рецензије)</span>
+              <span class="pill" data-i18n="metaAddress">📍 Сењска 8, Пирот 18300</span>
+              <span class="pill" data-i18n="metaWeekdays">🕒 Пон–Пет: 08:28–20:01ч</span>
+              <span class="pill" data-i18n="metaSaturday">🕒 Субота: 08:28–15:01ч</span>
+              <span class="pill" data-i18n="metaSunday">🕒 Недеља: 09:01–10:28ч</span>
+              <span class="pill" data-i18n="metaRating">⭐ 5.0 (рецензије)</span>
             </div>
           </div>
 
           <div class="kpiGrid">
             <div class="kpi">
-              <strong>Брзо заказивање</strong>
-              <span>WhatsApp / телефон — потврда термина у пар минута (у радно време).</span>
+              <strong data-i18n="kpiFastTitle">Брзо заказивање</strong>
+              <span data-i18n="kpiFastDesc">WhatsApp / телефон — потврда термина у пар минута (у радно време).</span>
             </div>
             <div class="kpi">
-              <strong>Топ хигијена</strong>
-              <span>Чистоћа, дезинфекција алата, уредан радни простор.</span>
+              <strong data-i18n="kpiHygieneTitle">Топ хигијена</strong>
+              <span data-i18n="kpiHygieneDesc">Чистоћа, дезинфекција алата, уредан радни простор.</span>
             </div>
             <div class="kpi">
-              <strong>Фејд & брада</strong>
-              <span>Low / mid / high фејд, тејпер, лајн-ап, брада и контуре.</span>
+              <strong data-i18n="kpiFadeTitle">Фејд & брада</strong>
+              <span data-i18n="kpiFadeDesc">Low / mid / high фејд, тејпер, лајн-ап, брада и контуре.</span>
             </div>
             <div class="kpi">
-              <strong>Атмосфера</strong>
-              <span>Пријатан вајб, музика, без стреса — дођеш и искулираш.</span>
+              <strong data-i18n="kpiAtmosTitle">Атмосфера</strong>
+              <span data-i18n="kpiAtmosDesc">Пријатан вајб, музика, без стреса — дођеш и искулираш.</span>
             </div>
           </div>
         </div>
@@ -362,41 +365,41 @@
 
     <section class="section" id="usluge">
       <div class="wrap">
-        <h2>Услуге</h2>
-        <p class="sub">Најтраженије услуге — јасно, једноставно, без компликовања.</p>
+        <h2 data-i18n="sectionServicesTitle">Услуге</h2>
+        <p class="sub" data-i18n="sectionServicesSub">Најтраженије услуге — јасно, једноставно, без компликовања.</p>
 
         <div class="grid3">
           <div class="card">
             <div class="serviceTitle">
               <div class="icon">✂</div>
               <div>
-                <strong>Шишање</strong><br/>
-                <span class="tag">Фејд / тејпер / класично</span>
+                <strong data-i18n="serviceCutTitle">Шишање</strong><br/>
+                <span class="tag" data-i18n="serviceCutTag">Фејд / тејпер / класично</span>
               </div>
             </div>
-            <p class="sub">Прецизно шишање по облику главе + завршни стилинг.</p>
+            <p class="sub" data-i18n="serviceCutDesc">Прецизно шишање по облику главе + завршни стилинг.</p>
           </div>
 
           <div class="card">
             <div class="serviceTitle">
               <div class="icon">🧔</div>
               <div>
-                <strong>Брада</strong><br/>
-                <span class="tag">Контуре / обликовање</span>
+                <strong data-i18n="serviceBeardTitle">Брада</strong><br/>
+                <span class="tag" data-i18n="serviceBeardTag">Контуре / обликовање</span>
               </div>
             </div>
-            <p class="sub">Обликовање браде, контуре, бријач — чист завршетак.</p>
+            <p class="sub" data-i18n="serviceBeardDesc">Обликовање браде, контуре, бријач — чист завршетак.</p>
           </div>
 
           <div class="card">
             <div class="serviceTitle">
               <div class="icon">⚡</div>
               <div>
-                <strong>Шишање + брада</strong><br/>
-                <span class="tag">Комплет услуга</span>
+                <strong data-i18n="serviceComboTitle">Шишање + брада</strong><br/>
+                <span class="tag" data-i18n="serviceComboTag">Комплет услуга</span>
               </div>
             </div>
-            <p class="sub">Најпопуларнији пакет: глава + брада, све у једном термину.</p>
+            <p class="sub" data-i18n="serviceComboDesc">Најпопуларнији пакет: глава + брада, све у једном термину.</p>
           </div>
         </div>
       </div>
@@ -404,72 +407,72 @@
 
     <section class="section" id="cenovnik">
       <div class="wrap">
-        <h2>Ценовник</h2>
-        <p class="sub">Актуелне цене услуга — усклади их ако се промене.</p>
+        <h2 data-i18n="pricingTitle">Ценовник</h2>
+        <p class="sub" data-i18n="pricingSub">Актуелне цене услуга — усклади их ако се промене.</p>
 
-        <table class="priceTable" aria-label="Ценовник">
+        <table class="priceTable" aria-label="Ценовник" data-i18n-attr="aria-label:pricingTableLabel">
           <thead>
             <tr>
-              <th>Услуга</th>
-              <th>Трајање</th>
-              <th>Цена</th>
+              <th data-i18n="tableService">Услуга</th>
+              <th data-i18n="tableDuration">Трајање</th>
+              <th data-i18n="tablePrice">Цена</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Шишање</td>
-              <td>24–32 мин</td>
+              <td data-i18n="serviceHaircutName">Шишање</td>
+              <td data-i18n="serviceHaircutDuration">24–32 мин</td>
               <td>600 RSD</td>
             </tr>
             <tr>
-              <td>Фејд</td>
-              <td>32–40 мин</td>
+              <td data-i18n="serviceFadeName">Фејд</td>
+              <td data-i18n="serviceFadeDuration">32–40 мин</td>
               <td>800 RSD</td>
             </tr>
             <tr>
-              <td>Прање косе</td>
-              <td>8 мин</td>
+              <td data-i18n="serviceWashName">Прање косе</td>
+              <td data-i18n="serviceWashDuration">8 мин</td>
               <td>100 RSD</td>
             </tr>
             <tr>
-              <td>Дечије шишање</td>
-              <td>16–24 мин</td>
+              <td data-i18n="serviceKidsName">Дечије шишање</td>
+              <td data-i18n="serviceKidsDuration">16–24 мин</td>
               <td>600 RSD</td>
             </tr>
           </tbody>
         </table>
 
-        <p class="note">Ажурирај ове цене и радно време ако се промене (нпр. празници).</p>
+        <p class="note" data-i18n="pricingNote">Ажурирај ове цене и радно време ако се промене (нпр. празници).</p>
       </div>
     </section>
 
     <section class="section" id="galerija">
       <div class="wrap">
-        <h2>Галерија</h2>
-        <div class="gallery" aria-label="Галерија">
+        <h2 data-i18n="galleryTitle">Галерија</h2>
+        <div class="gallery" aria-label="Галерија" data-i18n-attr="aria-label:galleryAriaLabel">
           <div class="ph big">
             <a href="sl1-noc.png" target="_blank" rel="noreferrer">
-              <img src="sl1-noc.png" alt="Фејд и брада у ноћној атмосфери" loading="lazy" />
+              <img src="sl1-noc.png" alt="Фејд и брада у ноћној атмосфери" loading="lazy" data-i18n-attr="alt:galleryAlt1" />
             </a>
           </div>
           <div class="ph mid">
             <a href="sl2.png" target="_blank" rel="noreferrer">
-              <img src="sl2.png" alt="Брица подешава прецизне линије на страни" loading="lazy" />
+              <img src="sl2.png" alt="Брица подешава прецизне линије на страни" loading="lazy" data-i18n-attr="alt:galleryAlt2" />
             </a>
           </div>
           <div class="ph mid">
             <a href="sl3-avion.png" target="_blank" rel="noreferrer">
-              <img src="sl3-avion.png" alt="Фризура инспирисана путовањима и авијацијом" loading="lazy" />
+              <img src="sl3-avion.png" alt="Фризура инспирисана путовањима и авијацијом" loading="lazy" data-i18n-attr="alt:galleryAlt3" />
             </a>
           </div>
           <div class="ph small">
             <a href="sl4-drugari.png" target="_blank" rel="noreferrer">
-              <img src="sl4-drugari.png" alt="Дружење после свежег шишања" loading="lazy" />
+              <img src="sl4-drugari.png" alt="Дружење после свежег шишања" loading="lazy" data-i18n-attr="alt:galleryAlt4" />
             </a>
           </div>
           <div class="ph small">
             <a href="sl5-ulica.png" target="_blank" rel="noreferrer">
-              <img src="sl5-ulica.png" alt="Улични стил са уређеном брадом" loading="lazy" />
+              <img src="sl5-ulica.png" alt="Улични стил са уређеном брадом" loading="lazy" data-i18n-attr="alt:galleryAlt5" />
             </a>
           </div>
         </div>
@@ -478,17 +481,17 @@
 
     <section class="section" id="recenzije">
       <div class="wrap">
-        <h2>Рецензије</h2>
+        <h2 data-i18n="reviewsTitle">Рецензије</h2>
         <div class="twoCol">
           <div class="card review">
             <div class="stars">★★★★★</div>
-            <div>“Најбољи фејд у околини. Брада увек перфектна.”</div>
-            <div class="who">— Марко П.</div>
+            <div data-i18n="review1Text">“Најбољи фејд у околини. Брада увек перфектна.”</div>
+            <div class="who" data-i18n="review1Author">— Марко П.</div>
           </div>
           <div class="card review">
             <div class="stars">★★★★★</div>
-            <div>“Брзо заказивање, одлична атмосфера и топ хигијена.”</div>
-            <div class="who">— Никола С.</div>
+            <div data-i18n="review2Text">“Брзо заказивање, одлична атмосфера и топ хигијена.”</div>
+            <div class="who" data-i18n="review2Author">— Никола С.</div>
           </div>
         </div>
       </div>
@@ -496,11 +499,11 @@
 
     <section class="section" id="kontakt">
       <div class="wrap">
-        <h2>Контакт & локација</h2>
+        <h2 data-i18n="contactTitle">Контакт & локација</h2>
         <div class="twoCol">
           <div class="card">
-            <strong>Брица Церевац</strong>
-            <p class="sub" style="margin-top:10px">
+            <strong data-i18n="contactBusiness">Брица Церевац</strong>
+            <p class="sub" style="margin-top:10px" data-i18n="contactDetails" data-i18n-mode="html">
               📍 Адреса: <span class="tag">Сењска 8, Пирот 18300</span><br/>
               🕒 Радно време: <span class="tag">Пон–Пет 08:28–20:01ч</span><br/>
               🕒 Субота: <span class="tag">08:28–15:01ч</span><br/>
@@ -510,34 +513,34 @@
             </p>
 
             <div class="mini">
-              <a class="btn primary" href="https://wa.me/381642152160" target="_blank" rel="noreferrer">Закажи преко WhatsApp</a>
-              <a class="btn" href="viber://chat?number=%2B381642152160" target="_blank" rel="noreferrer">Позови преко Viber</a>
+              <a class="btn primary" href="https://wa.me/381642152160" target="_blank" rel="noreferrer" data-i18n="contactWhatsCTA">Закажи преко WhatsApp</a>
+              <a class="btn" href="viber://chat?number=%2B381642152160" target="_blank" rel="noreferrer" data-i18n="actionViber">Позови преко Viber</a>
             </div>
 
-            <p class="note">Ако имаш Instagram/TikTok, додај дугме овде (то често диже поверење).</p>
+            <p class="note" data-i18n="contactNote">Ако имаш Instagram/TikTok, додај дугме овде (то често диже поверење).</p>
           </div>
 
           <div class="card">
-            <strong>Брза порука</strong>
-            <p class="sub" style="margin-top:10px">Када пошаљеш, отвориће се WhatsApp разговор са припремљеном поруком.</p>
+            <strong data-i18n="quickTitle">Брза порука</strong>
+            <p class="sub" style="margin-top:10px" data-i18n="quickDesc">Када пошаљеш, отвориће се WhatsApp разговор са припремљеном поруком.</p>
 
             <form id="quickForm">
               <label>
-                <span class="who">Име</span>
-                <input class="input" name="name" required placeholder="нпр. Бојан" />
+                <span class="who" data-i18n="formName">Име</span>
+                <input class="input" name="name" required placeholder="нпр. Бојан" data-i18n-attr="placeholder:placeholderName" />
               </label>
               <div style="height:10px"></div>
               <label>
-                <span class="who">Телефон</span>
+                <span class="who" data-i18n="formPhone">Телефон</span>
                 <input class="input" name="phone" required placeholder="+381..." />
               </label>
               <div style="height:10px"></div>
               <label>
-                <span class="who">Порука</span>
-                <textarea class="input" name="message" rows="4" required placeholder="Желим термин за шишање + браду у петак..."></textarea>
+                <span class="who" data-i18n="formMessage">Порука</span>
+                <textarea class="input" name="message" rows="4" required placeholder="Желим термин за шишање + браду у петак..." data-i18n-attr="placeholder:placeholderMessage"></textarea>
               </label>
               <div style="height:12px"></div>
-              <button class="btn primary" type="submit">Пошаљи</button>
+              <button class="btn primary" type="submit" data-i18n="formSubmit">Пошаљи</button>
             </form>
           </div>
         </div>
@@ -550,20 +553,20 @@
           <div>
             <div class="brand">
               <span class="logo" aria-hidden="true"></span>
-              <span style="color:var(--brand)">Церевац</span>
+              <span style="color:var(--brand)" data-i18n="brandName">Церевац</span>
             </div>
             <p class="sub" style="margin-top:10px">
-              Шишање • Брада • Фејд • Груминг<br/>
-              © <span id="y"></span> Церевац. Сва права задржана.
+              <span data-i18n="footerServices">Шишање • Брада • Фејд • Груминг</span><br/>
+              © <span id="y"></span> <span data-i18n="brandName">Церевац</span>. <span data-i18n="footerRights">Сва права задржана.</span>
             </p>
           </div>
           <div>
-            <p class="sub"><strong style="color:var(--text)">Брзи линкови</strong></p>
+            <p class="sub"><strong style="color:var(--text)" data-i18n="footerLinks">Брзи линкови</strong></p>
             <div class="mini">
-              <a class="btn" href="#usluge">Услуге</a>
-              <a class="btn" href="#cenovnik">Ценовник</a>
-              <a class="btn" href="#galerija">Галерија</a>
-              <a class="btn" href="#kontakt">Контакт</a>
+              <a class="btn" href="#usluge" data-i18n="navServices">Услуге</a>
+              <a class="btn" href="#cenovnik" data-i18n="navPricing">Ценовник</a>
+              <a class="btn" href="#galerija" data-i18n="navGallery">Галерија</a>
+              <a class="btn" href="#kontakt" data-i18n="navContact">Контакт</a>
             </div>
           </div>
         </div>
@@ -574,6 +577,427 @@
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
 
+    const translations = {
+      pageTitle: {
+        cyrl: "Церевац — Шишање и бријање",
+        lat: "Cerevac — Šišanje i brijanje"
+      },
+      metaDescription: {
+        cyrl: "Брица Церевац — шишање, брада, фејд, груминг. Закажи термин брзо и лако.",
+        lat: "Brica Cerevac — šišanje, brada, fejd, gruming. Zakaži termin brzo i lako."
+      },
+      brandName: {
+        cyrl: "Церевац",
+        lat: "Cerevac"
+      },
+      brandAriaLabel: {
+        cyrl: "Почетна",
+        lat: "Početna"
+      },
+      navAriaLabel: {
+        cyrl: "Главна навигација",
+        lat: "Glavna navigacija"
+      },
+      navServices: {
+        cyrl: "Услуге",
+        lat: "Usluge"
+      },
+      navPricing: {
+        cyrl: "Ценовник",
+        lat: "Cenovnik"
+      },
+      navGallery: {
+        cyrl: "Галерија",
+        lat: "Galerija"
+      },
+      navReviews: {
+        cyrl: "Рецензије",
+        lat: "Recenzije"
+      },
+      navContact: {
+        cyrl: "Контакт",
+        lat: "Kontakt"
+      },
+      actionMenu: {
+        cyrl: "Мени",
+        lat: "Meni"
+      },
+      actionViber: {
+        cyrl: "Позови преко Viber",
+        lat: "Pozovi preko Viber"
+      },
+      actionBook: {
+        cyrl: "Закажи термин",
+        lat: "Zakaži termin"
+      },
+      heroPill: {
+        cyrl: "✂️ Најпопуларнији брица у граду • Брада • Фејд • Груминг",
+        lat: "✂️ Najpopularniji brica u gradu • Brada • Fejd • Gruming"
+      },
+      heroTitle: {
+        cyrl: "Оштар фејд. Чиста брада. <br/>Вајб који траје.",
+        lat: "Oštar fejd. Čista brada. <br/>Vajb koji traje."
+      },
+      heroLead: {
+        cyrl: "Церевац — место где се добар стил ради без журбе. Прецизно шишање, обликовање браде и детаљи који праве разлику.",
+        lat: "Cerevac — mesto gde se dobar stil radi bez žurbe. Precizno šišanje, oblikovanje brade i detalji koji prave razliku."
+      },
+      heroWhatsApp: {
+        cyrl: "WhatsApp заказивање",
+        lat: "WhatsApp zakazivanje"
+      },
+      heroPricing: {
+        cyrl: "Погледај ценовник",
+        lat: "Pogledaj cenovnik"
+      },
+      heroGallery: {
+        cyrl: "Галерија",
+        lat: "Galerija"
+      },
+      metaAddress: {
+        cyrl: "📍 Сењска 8, Пирот 18300",
+        lat: "📍 Senjska 8, Pirot 18300"
+      },
+      metaWeekdays: {
+        cyrl: "🕒 Пон–Пет: 08:28–20:01ч",
+        lat: "🕒 Pon–Pet: 08:28–20:01č"
+      },
+      metaSaturday: {
+        cyrl: "🕒 Субота: 08:28–15:01ч",
+        lat: "🕒 Subota: 08:28–15:01č"
+      },
+      metaSunday: {
+        cyrl: "🕒 Недеља: 09:01–10:28ч",
+        lat: "🕒 Nedelja: 09:01–10:28č"
+      },
+      metaRating: {
+        cyrl: "⭐ 5.0 (рецензије)",
+        lat: "⭐ 5.0 (recenzije)"
+      },
+      kpiFastTitle: {
+        cyrl: "Брзо заказивање",
+        lat: "Brzo zakazivanje"
+      },
+      kpiFastDesc: {
+        cyrl: "WhatsApp / телефон — потврда термина у пар минута (у радно време).",
+        lat: "WhatsApp / telefon — potvrda termina u par minuta (u radno vreme)."
+      },
+      kpiHygieneTitle: {
+        cyrl: "Топ хигијена",
+        lat: "Top higijena"
+      },
+      kpiHygieneDesc: {
+        cyrl: "Чистоћа, дезинфекција алата, уредан радни простор.",
+        lat: "Čistoća, dezinfekcija alata, uredan radni prostor."
+      },
+      kpiFadeTitle: {
+        cyrl: "Фејд & брада",
+        lat: "Fejd & brada"
+      },
+      kpiFadeDesc: {
+        cyrl: "Low / mid / high фејд, тејпер, лајн-ап, брада и контуре.",
+        lat: "Low / mid / high fejd, tejper, lajn-ap, brada i konture."
+      },
+      kpiAtmosTitle: {
+        cyrl: "Атмосфера",
+        lat: "Atmosfera"
+      },
+      kpiAtmosDesc: {
+        cyrl: "Пријатан вајб, музика, без стреса — дођеш и искулираш.",
+        lat: "Prijatan vajb, muzika, bez stresa — dođeš i iskuliraš."
+      },
+      sectionServicesTitle: {
+        cyrl: "Услуге",
+        lat: "Usluge"
+      },
+      sectionServicesSub: {
+        cyrl: "Најтраженије услуге — јасно, једноставно, без компликовања.",
+        lat: "Najtraženije usluge — jasno, jednostavno, bez komplikovanja."
+      },
+      serviceCutTitle: {
+        cyrl: "Шишање",
+        lat: "Šišanje"
+      },
+      serviceCutTag: {
+        cyrl: "Фејд / тејпер / класично",
+        lat: "Fejd / tejper / klasično"
+      },
+      serviceCutDesc: {
+        cyrl: "Прецизно шишање по облику главе + завршни стилинг.",
+        lat: "Precizno šišanje po obliku glave + završni stajling."
+      },
+      serviceBeardTitle: {
+        cyrl: "Брада",
+        lat: "Brada"
+      },
+      serviceBeardTag: {
+        cyrl: "Контуре / обликовање",
+        lat: "Konture / oblikovanje"
+      },
+      serviceBeardDesc: {
+        cyrl: "Обликовање браде, контуре, бријач — чист завршетак.",
+        lat: "Oblikovanje brade, konture, brijač — čist završetak."
+      },
+      serviceComboTitle: {
+        cyrl: "Шишање + брада",
+        lat: "Šišanje + brada"
+      },
+      serviceComboTag: {
+        cyrl: "Комплет услуга",
+        lat: "Komplet usluga"
+      },
+      serviceComboDesc: {
+        cyrl: "Најпопуларнији пакет: глава + брада, све у једном термину.",
+        lat: "Najpopularniji paket: glava + brada, sve u jednom terminu."
+      },
+      pricingTitle: {
+        cyrl: "Ценовник",
+        lat: "Cenovnik"
+      },
+      pricingSub: {
+        cyrl: "Актуелне цене услуга — усклади их ако се промене.",
+        lat: "Aktuelne cene usluga — uskladi ih ako se promene."
+      },
+      pricingTableLabel: {
+        cyrl: "Ценовник",
+        lat: "Cenovnik"
+      },
+      tableService: {
+        cyrl: "Услуга",
+        lat: "Usluga"
+      },
+      tableDuration: {
+        cyrl: "Трајање",
+        lat: "Trajanje"
+      },
+      tablePrice: {
+        cyrl: "Цена",
+        lat: "Cena"
+      },
+      serviceHaircutName: {
+        cyrl: "Шишање",
+        lat: "Šišanje"
+      },
+      serviceHaircutDuration: {
+        cyrl: "24–32 мин",
+        lat: "24–32 min"
+      },
+      serviceFadeName: {
+        cyrl: "Фејд",
+        lat: "Fejd"
+      },
+      serviceFadeDuration: {
+        cyrl: "32–40 мин",
+        lat: "32–40 min"
+      },
+      serviceWashName: {
+        cyrl: "Прање косе",
+        lat: "Pranje kose"
+      },
+      serviceWashDuration: {
+        cyrl: "8 мин",
+        lat: "8 min"
+      },
+      serviceKidsName: {
+        cyrl: "Дечије шишање",
+        lat: "Dečije šišanje"
+      },
+      serviceKidsDuration: {
+        cyrl: "16–24 мин",
+        lat: "16–24 min"
+      },
+      pricingNote: {
+        cyrl: "Ажурирај ове цене и радно време ако се промене (нпр. празници).",
+        lat: "Ažuriraj ove cene i radno vreme ako se promene (npr. praznici)."
+      },
+      galleryTitle: {
+        cyrl: "Галерија",
+        lat: "Galerija"
+      },
+      galleryAriaLabel: {
+        cyrl: "Галерија",
+        lat: "Galerija"
+      },
+      galleryAlt1: {
+        cyrl: "Фејд и брада у ноћној атмосфери",
+        lat: "Fejd i brada u noćnoj atmosferi"
+      },
+      galleryAlt2: {
+        cyrl: "Брица подешава прецизне линије на страни",
+        lat: "Brica podešava precizne linije na strani"
+      },
+      galleryAlt3: {
+        cyrl: "Фризура инспирисана путовањима и авијацијом",
+        lat: "Frizura inspirisana putovanjima i avijacijom"
+      },
+      galleryAlt4: {
+        cyrl: "Дружење после свежег шишања",
+        lat: "Druženje posle svežeg šišanja"
+      },
+      galleryAlt5: {
+        cyrl: "Улични стил са уређеном брадом",
+        lat: "Ulični stil sa uređenom bradom"
+      },
+      reviewsTitle: {
+        cyrl: "Рецензије",
+        lat: "Recenzije"
+      },
+      review1Text: {
+        cyrl: "\u201CНајбољи фејд у околини. Брада увек перфектна.\u201D",
+        lat: "\u201CNajbolji fejd u okolini. Brada uvek perfektna.\u201D"
+      },
+      review1Author: {
+        cyrl: "— Марко П.",
+        lat: "— Marko P."
+      },
+      review2Text: {
+        cyrl: "\u201CБрзо заказивање, одлична атмосфера и топ хигијена.\u201D",
+        lat: "\u201CBrzo zakazivanje, odlična atmosfera i top higijena.\u201D"
+      },
+      review2Author: {
+        cyrl: "— Никола С.",
+        lat: "— Nikola S."
+      },
+      contactTitle: {
+        cyrl: "Контакт & локација",
+        lat: "Kontakt & lokacija"
+      },
+      contactBusiness: {
+        cyrl: "Брица Церевац",
+        lat: "Brica Cerevac"
+      },
+      contactDetails: {
+        cyrl: `📍 Адреса: <span class="tag">Сењска 8, Пирот 18300</span><br/>
+              🕒 Радно време: <span class="tag">Пон–Пет 08:28–20:01ч</span><br/>
+              🕒 Субота: <span class="tag">08:28–15:01ч</span><br/>
+              🕒 Недеља: <span class="tag">09:01–10:28ч</span><br/>
+              📞 Телефон: <a class="tag" href="tel:+381642152160">+381 64 215 2160</a><br/>
+              💬 WhatsApp: <a class="tag" href="https://wa.me/381642152160" target="_blank" rel="noreferrer">пошаљи поруку</a>`,
+        lat: `📍 Adresa: <span class="tag">Senjska 8, Pirot 18300</span><br/>
+              🕒 Radno vreme: <span class="tag">Pon–Pet 08:28–20:01č</span><br/>
+              🕒 Subota: <span class="tag">08:28–15:01č</span><br/>
+              🕒 Nedelja: <span class="tag">09:01–10:28č</span><br/>
+              📞 Telefon: <a class="tag" href="tel:+381642152160">+381 64 215 2160</a><br/>
+              💬 WhatsApp: <a class="tag" href="https://wa.me/381642152160" target="_blank" rel="noreferrer">pošalji poruku</a>`
+      },
+      contactWhatsCTA: {
+        cyrl: "Закажи преко WhatsApp",
+        lat: "Zakaži preko WhatsApp"
+      },
+      contactNote: {
+        cyrl: "Ако имаш Instagram/TikTok, додај дугме овде (то често диже поверење).",
+        lat: "Ako imaš Instagram/TikTok, dodaj dugme ovde (to često diže poverenje)."
+      },
+      quickTitle: {
+        cyrl: "Брза порука",
+        lat: "Brza poruka"
+      },
+      quickDesc: {
+        cyrl: "Када пошаљеш, отвориће се WhatsApp разговор са припремљеном поруком.",
+        lat: "Kada pošalješ, otvoriće se WhatsApp razgovor sa pripremljenom porukom."
+      },
+      formName: {
+        cyrl: "Име",
+        lat: "Ime"
+      },
+      placeholderName: {
+        cyrl: "нпр. Бојан",
+        lat: "npr. Bojan"
+      },
+      formPhone: {
+        cyrl: "Телефон",
+        lat: "Telefon"
+      },
+      formMessage: {
+        cyrl: "Порука",
+        lat: "Poruka"
+      },
+      placeholderMessage: {
+        cyrl: "Желим термин за шишање + браду у петак...",
+        lat: "Želim termin za šišanje + bradu u petak..."
+      },
+      formSubmit: {
+        cyrl: "Пошаљи",
+        lat: "Pošalji"
+      },
+      footerServices: {
+        cyrl: "Шишање • Брада • Фејд • Груминг",
+        lat: "Šišanje • Brada • Fejd • Gruming"
+      },
+      footerRights: {
+        cyrl: "Сва права задржана.",
+        lat: "Sva prava zadržana."
+      },
+      footerLinks: {
+        cyrl: "Брзи линкови",
+        lat: "Brzi linkovi"
+      },
+      waGreeting: {
+        cyrl: "Здраво, ја сам",
+        lat: "Zdravo, ja sam"
+      },
+      waPhone: {
+        cyrl: "Телефон",
+        lat: "Telefon"
+      }
+    };
+
+    const langToggle = document.getElementById("langToggle");
+    const storedLang = localStorage.getItem("preferredLang");
+    let currentLang = storedLang === "lat" ? "lat" : "cyrl";
+
+    function applyLanguage(lang){
+      const resolved = lang === "lat" ? "lat" : "cyrl";
+      document.documentElement.lang = resolved === "cyrl" ? "sr" : "sr-Latn";
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.dataset.i18n;
+        const mode = el.dataset.i18nMode === "html" ? "html" : "text";
+        const translation = translations[key]?.[resolved];
+        if(!translation) return;
+        if(mode === "html"){
+          el.innerHTML = translation;
+        } else {
+          el.textContent = translation;
+        }
+      });
+      document.querySelectorAll("[data-i18n-attr]").forEach((el) => {
+        const pairs = el.dataset.i18nAttr.split(",").map((pair) => pair.trim()).filter(Boolean);
+        pairs.forEach((pair) => {
+          const [attr, key] = pair.split(":").map((part) => part.trim());
+          if(!attr || !key) return;
+          const translation = translations[key]?.[resolved];
+          if(translation !== undefined){
+            el.setAttribute(attr, translation);
+          }
+        });
+      });
+      document.title = translations.pageTitle[resolved];
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if(metaDesc){
+        metaDesc.setAttribute("content", translations.metaDescription[resolved]);
+      }
+      if(langToggle){
+        if(resolved === "cyrl"){
+          langToggle.textContent = "Latinica";
+          langToggle.setAttribute("aria-pressed", "false");
+        } else {
+          langToggle.textContent = "Ћирилица";
+          langToggle.setAttribute("aria-pressed", "true");
+        }
+      }
+      localStorage.setItem("preferredLang", resolved);
+      currentLang = resolved;
+    }
+
+    applyLanguage(currentLang);
+
+    if(langToggle){
+      langToggle.addEventListener("click", () => {
+        const next = currentLang === "cyrl" ? "lat" : "cyrl";
+        applyLanguage(next);
+      });
+    }
+
     const quickForm = document.getElementById("quickForm");
     if (quickForm) {
       quickForm.addEventListener("submit", (event) => {
@@ -581,9 +1005,11 @@
         const name = quickForm.elements["name"].value.trim();
         const phone = quickForm.elements["phone"].value.trim();
         const message = quickForm.elements["message"].value.trim();
+        const greeting = translations.waGreeting[currentLang] || translations.waGreeting.cyrl;
+        const phoneLabel = translations.waPhone[currentLang] || translations.waPhone.cyrl;
         const composed = [
-          `Здраво, ја сам ${name}.`,
-          `Телефон: ${phone}.`,
+          `${greeting} ${name}.`,
+          `${phoneLabel}: ${phone}.`,
           message
         ].filter(Boolean).join("\n");
         const url = `https://wa.me/381642152160?text=${encodeURIComponent(composed)}`;
