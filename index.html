@@ -5,6 +5,21 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Церевац — Шишање и бријање</title>
   <meta name="description" content="Брица Церевац — шишање, брада, фејд, груминг. Закажи термин брзо и лако." />
+  <meta name="keywords" content="брица, шишање, брада, фејд, barber shop Pirot, Церевац, мушко шишање, grooming" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://cerevac.rs/" />
+  <meta name="theme-color" content="#0b0b0f" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="sr_RS" />
+  <meta property="og:url" content="https://cerevac.rs/" />
+  <meta property="og:title" content="Церевац — Шишање и бријање" />
+  <meta property="og:description" content="Брица Церевац — шишање, брада, фејд, груминг. Закажи термин брзо и лако." />
+  <meta property="og:image" content="https://cerevac.rs/sl1-noc.png" />
+  <meta property="og:site_name" content="Церевац" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Церевац — Шишање и бријање" />
+  <meta name="twitter:description" content="Брица Церевац — шишање, брада, фејд, груминг. Закажи термин брзо и лако." />
+  <meta name="twitter:image" content="https://cerevac.rs/sl1-noc.png" />
   <style>
     :root{
       --bg:#0b0b0f;
@@ -242,6 +257,22 @@
     .mini{
       display:flex; gap:10px; flex-wrap:wrap; margin-top:10px
     }
+    .mapCard{
+      margin-top:16px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      min-height:340px;
+      background:rgba(0,0,0,.2);
+    }
+    .mapEmbed{
+      width:100%;
+      height:100%;
+      min-height:340px;
+      border:0;
+      display:block;
+    }
     .input{
       width:100%;
       padding:12px 12px;
@@ -270,6 +301,8 @@
     @media (max-width: 600px){
       .wrap{padding:0 14px}
       .hero{padding:30px 0 14px}
+      .mapCard{min-height:280px}
+      .mapEmbed{min-height:280px}
       .actions,
       .heroCtas,
       .mini{flex-direction:column; align-items:stretch}
@@ -283,6 +316,57 @@
       .card{padding:14px}
     }
   </style>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Barbershop",
+      "@id": "https://cerevac.rs/#business",
+      "name": "Церевац",
+      "description": "Брица Церевац — шишање, брада, фејд, груминг. Закажи термин брзо и лако.",
+      "url": "https://cerevac.rs/",
+      "telephone": "+381642152160",
+      "priceRange": "RSD",
+      "image": "https://cerevac.rs/sl1-noc.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Сењска 8",
+        "addressLocality": "Пирот",
+        "postalCode": "18300",
+        "addressCountry": "RS"
+      },
+      "hasMap": "https://www.google.com/maps?q=Senjska+8,+Pirot,+Serbia",
+      "sameAs": [
+        "https://wa.me/381642152160",
+        "https://www.google.com/maps?q=Senjska+8,+Pirot,+Serbia"
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "08:28",
+          "closes": "20:01"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:28",
+          "closes": "15:01"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "09:01",
+          "closes": "10:28"
+        }
+      ]
+    }
+  </script>
 </head>
 
 <body>
@@ -360,6 +444,7 @@
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
@@ -402,6 +487,7 @@
             <p class="sub" data-i18n="serviceComboDesc">Најпопуларнији пакет: глава + брада, све у једном термину.</p>
           </div>
         </div>
+
       </div>
     </section>
 
@@ -543,6 +629,17 @@
               <button class="btn primary" type="submit" data-i18n="formSubmit">Пошаљи</button>
             </form>
           </div>
+        </div>
+
+        <div class="mapCard" aria-label="Google мапа — Церевац, Сењска 8, Пирот">
+          <iframe
+            class="mapEmbed"
+            title="Google мапа — Церевац, Сењска 8, Пирот"
+            loading="lazy"
+            src="https://www.google.com/maps?q=Senjska%208%2C%20Pirot%2C%20Serbia&output=embed"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
       </div>
     </section>
@@ -975,6 +1072,22 @@
       const metaDesc = document.querySelector('meta[name="description"]');
       if(metaDesc){
         metaDesc.setAttribute("content", translations.metaDescription[resolved]);
+      }
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      if(ogTitle){
+        ogTitle.setAttribute("content", translations.pageTitle[resolved]);
+      }
+      const ogDesc = document.querySelector('meta[property="og:description"]');
+      if(ogDesc){
+        ogDesc.setAttribute("content", translations.metaDescription[resolved]);
+      }
+      const twTitle = document.querySelector('meta[name="twitter:title"]');
+      if(twTitle){
+        twTitle.setAttribute("content", translations.pageTitle[resolved]);
+      }
+      const twDesc = document.querySelector('meta[name="twitter:description"]');
+      if(twDesc){
+        twDesc.setAttribute("content", translations.metaDescription[resolved]);
       }
       if(langToggle){
         if(resolved === "cyrl"){
