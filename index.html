@@ -263,6 +263,19 @@
       border-top:1px solid var(--line);
       color:var(--muted);
     }
+    .footerCreditLink{
+      display:block;
+      width:fit-content;
+      margin:18px auto 0;
+      color:var(--brand);
+      text-decoration:underline;
+      text-underline-offset:3px;
+      transition:color .2s ease, opacity .2s ease;
+    }
+    .footerCreditLink:hover{
+      color:#f0c66b;
+      opacity:1;
+    }
     .footGrid{
       display:grid; grid-template-columns: 1.2fr .8fr; gap:12px;
     }
@@ -681,6 +694,7 @@
             </div>
           </div>
         </div>
+        <a class="footerCreditLink" href="http://83.229.82.132/" target="_blank" rel="noopener noreferrer" data-i18n="footerCredit">Израда сајта и одржавање</a>
       </div>
     </footer>
   </main>
@@ -1042,6 +1056,10 @@
       footerLinks: {
         cyrl: "Брзи линкови",
         lat: "Brzi linkovi"
+      },
+      footerCredit: {
+        cyrl: "Израда сајта и одржавање",
+        lat: "Izrada sajta i održavanje"
       },
       waGreeting: {
         cyrl: "Здраво, ја сам",
