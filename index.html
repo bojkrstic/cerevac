@@ -359,10 +359,11 @@
     h1{font-family:"Barlow Condensed",Impact,sans-serif;font-size:clamp(36px,4.3vw,56px);line-height:1;font-weight:700;letter-spacing:-.018em;color:var(--brand2);text-transform:none}.lead{font-size:15px;line-height:1.7;max-width:48ch}
     .kpiGrid{position:relative;display:block;min-height:590px;overflow:hidden;background:#141010;border:1px solid var(--line);border-left:0}.kpiGrid::before{content:"PLAY / CEREVAC";position:absolute;z-index:2;top:18px;left:18px;padding:7px 9px;background:var(--brand);color:#fff;font:500 10px "DM Mono",monospace;letter-spacing:.1em}.kpiGrid::after{content:"01 — 01";position:absolute;z-index:2;right:18px;bottom:18px;color:#fff;font:500 10px "DM Mono",monospace;letter-spacing:.1em;mix-blend-mode:difference}.heroVideo{display:block;width:100%;height:100%;min-height:590px;object-fit:cover;object-position:center;filter:saturate(.78) contrast(1.08)}
     .heroPhoto{position:relative;margin:0;min-height:590px;overflow:hidden;background:#050505;border:1px solid var(--line);border-left:0}.heroPhoto::before{content:"IZ SALONA";position:absolute;z-index:2;top:18px;left:18px;padding:7px 9px;background:var(--brand2);color:#17130c;font:500 10px "DM Mono",monospace;letter-spacing:.1em}.heroPhoto img{display:block;width:100%;height:100%;min-height:590px;object-fit:contain;object-position:center}
+    .heroPhotos{display:grid;grid-template-rows:1.25fr 1fr;min-height:850px}.heroPhotos .heroPhoto{min-height:0}.heroPhotos .heroPhoto img{min-height:0}.heroPhotos .heroPhoto + .heroPhoto{border-top:0}
     .showreel{padding-top:0}.showreel .kpiGrid{max-width:620px;margin:0 auto;border-left:1px solid var(--line)}
     .section{padding:38px 0}.section h2{font-family:"Barlow Condensed",sans-serif;font-size:clamp(26px,3vw,36px);line-height:1;font-weight:700;color:var(--brand2);text-transform:none;letter-spacing:-.01em}.card,.ph,.priceTable,.mapCard,.input,.note,.icon{border-radius:0}.icon{background:rgba(241,61,36,.12);border-color:rgba(241,61,36,.4);color:var(--brand)}.note{color:var(--brand);background:rgba(241,61,36,.08);border-color:rgba(241,61,36,.35)}
-    @media (max-width:900px){.heroGrid{grid-template-columns:1fr}.kpiGrid,.heroPhoto{min-height:0;aspect-ratio:9 / 16;border-left:1px solid var(--line);border-top:0}.heroVideo,.heroPhoto img{min-height:0;height:100%;object-fit:cover}.heroPhoto img{object-fit:contain}}
-    @media (max-width:600px){.wrap{padding:0 14px}.nav{flex-wrap:wrap;align-items:center;padding:12px 0}.brand{width:100%;justify-content:center}.actions{display:grid;grid-template-columns:1fr 1fr;width:100%;gap:8px;flex-direction:unset;align-items:stretch}.actions .btn{width:auto;min-width:0;padding:11px 6px;font-size:10px;white-space:normal}.hero{padding-top:22px}.hcard{padding:34px 24px}.heroGrid,.grid3,.twoCol{grid-template-columns:1fr!important;gap:0}.kpiGrid,.heroPhoto{aspect-ratio:auto;height:min(68svh,500px);min-height:420px}.kpiGrid::before,.heroPhoto::before{top:12px;left:12px}.kpiGrid::after{right:12px;bottom:12px}.heroVideo{filter:saturate(.86) contrast(1.04)}h1{font-size:36px}.section h2{font-size:26px}}
+    @media (max-width:900px){.heroGrid{grid-template-columns:1fr}.heroPhotos{min-height:850px}.kpiGrid,.heroPhoto{min-height:0;aspect-ratio:9 / 16;border-left:1px solid var(--line);border-top:0}.heroVideo,.heroPhoto img{min-height:0;height:100%;object-fit:cover}.heroPhoto img{object-fit:contain}}
+    @media (max-width:600px){.wrap{padding:0 14px}.nav{flex-wrap:wrap;align-items:center;padding:12px 0}.brand{width:100%;justify-content:center}.actions{display:grid;grid-template-columns:1fr 1fr;width:100%;gap:8px;flex-direction:unset;align-items:stretch}.actions .btn{width:auto;min-width:0;padding:11px 6px;font-size:10px;white-space:normal}.hero{padding-top:22px}.hcard{padding:34px 24px}.heroGrid,.grid3,.twoCol{grid-template-columns:1fr!important;gap:0}.heroPhotos{min-height:760px}.kpiGrid,.heroPhoto{aspect-ratio:auto;height:min(68svh,500px);min-height:420px}.heroPhotos .heroPhoto{height:auto;min-height:0}.kpiGrid::before,.heroPhoto::before{top:12px;left:12px}.kpiGrid::after{right:12px;bottom:12px}.heroVideo{filter:saturate(.86) contrast(1.04)}h1{font-size:36px}.section h2{font-size:26px}}
   </style>
   <script type="application/ld+json">
     {
@@ -477,9 +478,14 @@
             </div>
           </div>
 
-          <figure class="heroPhoto">
-            <img src="viber_image_2026-11-01_18-47-45-523.jpg" alt="Brica Cerevac šiša mušteriju u salonu" />
-          </figure>
+          <div class="heroPhotos">
+            <figure class="heroPhoto">
+              <img src="viber_image_2026-11-19_18-47-12-769.jpg" alt="Brica Cerevac šiša dete u salonu" />
+            </figure>
+            <figure class="heroPhoto">
+              <img src="viber_image_2026-11-01_18-47-45-523.jpg" alt="Brica Cerevac šiša mušteriju u salonu" />
+            </figure>
+          </div>
 
         </div>
 
